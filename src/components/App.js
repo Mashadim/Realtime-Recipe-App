@@ -28,7 +28,7 @@ class App extends Component {
 	}
 	
 	handleRecipeChecked(event) {
-		event.target.checked ? this.props.actions.recipeChk(event.target.value) : this.props.actions.recipeUnChk(event.target.value);
+		event.target.checked ? this.props.actions.recipeCheck(event.target.value) : this.props.actions.recipeUncheck(event.target.value);
 	}
 	
 	render() {

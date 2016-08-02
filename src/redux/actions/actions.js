@@ -39,7 +39,7 @@ let actions = {
 			recipeName: recipeName
 		}
 	},
-	recipeChk: function(recipeName) {
+	recipeCheck: function(recipeName) {
 		return (dispatch) => {	
 			dispatch(actions.recipeChecked(recipeName));	
 			dispatch(actions.filterIngredients());
@@ -51,7 +51,7 @@ let actions = {
 			recipeName: recipeName
 		};
 	},
-	recipeUnChk: function(recipeName) {
+	recipeUncheck: function(recipeName) {
 		return(dispatch) => {
 			dispatch(actions.recipeUnChecked(recipeName));
 			dispatch(actions.filterIngredients());
