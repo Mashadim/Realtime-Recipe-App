@@ -5,7 +5,7 @@ class RecipeCardImage extends Component {
 		const { recipeImage } = this.props;
 		return (
 			<div className='recipeCardImageDiv'>
-				<img className='recipeCardImage img-responsive center-block'src={this.props.recipeImage} />
+				<img className='recipeCardImage img-responsive center-block'src={recipeImage} />
 			</div>
 		)
 	}
