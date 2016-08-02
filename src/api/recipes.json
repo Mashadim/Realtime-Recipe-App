@@ -2,49 +2,65 @@
     {
         "name": "Risotto",
         "type": "Italian",
+				"rating": 5,
         "cook_time": 60,
+				"image": "../../images/risotto.jpg",
         "ingredients": ["Rice", "Chicken Stock", "Parmesan Cheese", "White Wine", "Butter", "Salt", "Pepper", "Peas"]
     },
     {
         "name": "Enchiladas",
         "type": "Mexican",
+				"rating": 3,
         "cook_time": 50,
+				"image": "../../images/enchiladas.jpg",
         "ingredients": ["Tomato Sauce", "Tomato", "Corn Tortillas", "Cheddar Cheese", "Onion", "Olives", "Salt", "Chicken"]
     },
     {
         "name": "Hummus",
         "type": "Middle Eastern",
+				"rating": 4,
         "cook_time": 10,
+				"image": "../../images/hummus.jpg",
         "ingredients": ["Garlic", "Chickpeas", "Salt", "Tahini", "Hot Sauce"]
     },
     {
         "name": "Pancakes",
-        "type": "Breakfast",
+        "type": "American",
+				"rating": 3,
         "cook_time": 25,
+				"image": "../../images/pancakes.jpg",
         "ingredients": ["Milk", "Flour", "Sugar", "Butter", "Baking Powder", "Baking Soda", "Egg", "Salt"]
     },
     {
         "name": "Borscht",
-        "type": "Russian",
+        "type": "Ukranian",
+				"rating": 5,
         "cook_time": 75,
-        "ingredients": ["Water", "Potato", "Beets", "Butter", "Onion", "Salt", "Celery", "Carrot", "Cabbage", "Pepper", "Vinegar", "Tomato"]
+				"image": "../../images/borscht.jpg",
+        "ingredients": ["Water", "Potato", "Beets", "Butter", "Onion", "Salt", "Celery", "Carrot", "Cabbage", "Pepper", "Vinegar", "Tomato", "Sour Cream", "Garlic"]
     },
     {
         "name": "Pierogi",
         "type": "Polish",
+				"rating": 5,
         "cook_time": 105,
+				"image": "../../images/pierogi.jpg",
         "ingredients": ["Butter", "Onion", "Salt", "Pepper", "Potato", "Egg", "Flour", "Baking Powder"]
     },
     {
         "name": "Pupusa",
         "type": "Salvadoran",
+				"rating": 4,
         "cook_time": 40,
+				"image": "../../images/pupusa.jpg",
         "ingredients": ["Masa", "Water", "Queso Fresco"]
     },
     {
         "name": "Fried Rice",
         "type": "Chinese",
+				"rating": 3,
         "cook_time": 28,
+				"image": "../../images/friedrice.jpg",
         "ingredients": ["Onion", "Oil", "Rice", "Egg", "Soy Sauce", "Sesame Oil", "Chicken", "Carrot", "Peas"]
     }
 ]

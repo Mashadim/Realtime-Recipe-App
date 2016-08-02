@@ -1,0 +1,84 @@
+/* ===============
+		General 
+   =============== */
+
+.general-font {
+	font-family: Helvetica, 'san serif';
+}
+
+.general-padding {
+	padding-left: 15px;
+}
+
+.lead {
+	margin-bottom: 6px !important;
+}
+
+/* ===============
+ 		Form 
+   =============== */
+.form {
+	margin: auto;
+	padding: 30px;
+}
+
+.form-group-lg .form-control {
+	font-size: 2.4em !important;
+}
+
+/* ===============
+ 		Recipe
+   =============== */
+
+.recipeCard {
+	position: relative;
+	margin: auto;
+	padding: 15px;
+	width: 100%;
+	margin-bottom: 24px;
+	border: 1px solid #d3d3d3;
+	border-radius: 5px;
+}
+
+.recipeCardImage {
+	width: 100%;
+}
+
+.recipeCardRating {
+	padding-top: 10px;
+	font-size: 2em !important;
+	color: #FFD700;
+}
+
+.recipeName {
+	font-size: 2em;
+	font-weight: 600;
+	padding-top: 10px;
+}
+
+.recipeCardCheckbox-word {
+	padding-left: 5px;
+}
+
+.checkbox {
+	height: 20px;
+	width: 20px;
+	margin-top: 5px !important;
+}
+
+/* ===============
+ 	Ingredient
+   =============== */
+   
+.ingredientList {
+	position: fixed;
+	margin: auto;
+	width: 30%;
+	height: 75%;
+	overflow-y: scroll !important;
+	border: 1px solid #d3d3d3;
+}
+
+.ingredient {
+	font-weight: 500 !important;
+}
