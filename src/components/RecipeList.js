@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RecipeCard from './RecipeCard'
 
-class RecipeList extends Component {
+export class RecipeList extends Component {
 	render() {
 		const { viewRecipes, recipes, handleRecipeChecked } = this.props;
 		let view = viewRecipes.length ? viewRecipes : recipes;

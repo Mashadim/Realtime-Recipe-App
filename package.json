@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "DataScience's Frontend Code Test",
   "scripts": {
-    "test": "none for now",
+    "test": "mocha --compilers js:babel-core/register src/test/dom.js ./src/**/*.spec.js",
     "serve": "nodemon server/server.js --ignore components"
   },
   "repository": {
@@ -22,9 +22,9 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.5.0",
     "express": "^4.14.0",
     "react": "^15.3.0",
-    "react-addons-test-utils": "^15.3.0",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
@@ -35,5 +35,13 @@
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"
+  },
+  "devDependencies": {
+    "babel-register": "^6.11.6",
+    "enzyme": "^2.4.1",
+    "expect": "^1.20.2",
+    "jsdom": "^9.4.1",
+    "mocha": "^3.0.0",
+    "react-addons-test-utils": "^15.3.0"
   }
 }

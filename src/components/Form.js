@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Form extends Component {
+export class Form extends Component {
 	render() {
 		const { recipeSearch, handleRecipeSearch } = this.props;
 		return (

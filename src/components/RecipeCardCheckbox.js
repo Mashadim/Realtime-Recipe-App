@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class RecipeCardCheckbox extends Component {
+export class RecipeCardCheckbox extends Component {
 	render() {
 		const { recipeName, handleRecipeChecked } = this.props;
 		return (
@@ -10,8 +10,8 @@ class RecipeCardCheckbox extends Component {
 				</div>
 				<hr />
 				<form className='form-inline text-center'>
-					<label className="checkbox-inline">
-						<input type="checkbox" className='checkbox' id={recipeName} onClick={handleRecipeChecked.bind(this)} value={recipeName}/>
+					<label className='checkbox-inline'>
+						<input type='checkbox' className='checkbox' id={recipeName} onClick={handleRecipeChecked.bind(this)} value={recipeName}/>
 						<span className='recipeCardCheckbox-word lead text-center'> 
 							View Ingredients
 						</span>

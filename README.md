@@ -9,6 +9,9 @@ This is an at-home exercise that we use as part of our standard interview proces
 * *npm run serve* to run the app.
 * Visit localhost:3000 to view app.
 
+## Tests
+* *npm test* to run tests.
+
 ## Requirements
 
 Using the provided JSON data representing a collection of meal recipes, create a micro frontend application that meets the following criteria:

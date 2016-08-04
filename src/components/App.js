@@ -7,7 +7,7 @@ import Form from './Form';
 import RecipeList from './RecipeList';
 import IngredientList from './IngredientList';
 
-class App extends Component {
+export class App extends Component {
 	constructor(props) {
 		super(props);
 		this.handleRecipeSearch = this.handleRecipeSearch.bind(this);
@@ -32,9 +32,7 @@ class App extends Component {
 	}
 	
 	render() {
-		const { recipeSearch, viewIngredients, viewRecipes, recipes} = this.props;
-		let showIngredients = viewIngredients ? <IngredientList viewIngredients={viewIngredients} /> : null;
-		
+		const { recipeSearch, viewIngredients, viewRecipes, recipes } = this.props;
 		return (
 			<div className='container container-div'>
 				<Form recipeSearch={recipeSearch} handleRecipeSearch={this.handleRecipeSearch} />
@@ -43,7 +41,7 @@ class App extends Component {
 						<RecipeList viewRecipes={viewRecipes} recipes={recipes} handleRecipeChecked={this.handleRecipeChecked}/>
 					</div>
   					<div className="col-xs-5">
-						{showIngredients}
+						<IngredientList viewIngredients={viewIngredients} />
 					</div>
 				</div>
 			</div>

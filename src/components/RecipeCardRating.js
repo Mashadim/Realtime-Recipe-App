@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class RecipeCardRating extends Component {
+export class RecipeCardRating extends Component {
 	render() {
 		const { recipeRating } = this.props;
 		let rating = [];
 		for(var i=0; i<recipeRating; i++) {
 			rating.push(
-				<span className="glyphicon glyphicon-star" aria-hidden="true"></span>
+				<span className='glyphicon glyphicon-star' aria-hidden='true'></span>
 			)
 		}	
 		return (
