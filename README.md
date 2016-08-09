@@ -21,7 +21,7 @@ Using the provided JSON data representing a collection of meal recipes, create a
 
 + Allow filtering of recipes by a single ingredient.
   + Type in any ingredient to view recipes with that ingredient.
-  + If no recipe typed or recipe is not available all the recipes will display.
+  + If no ingredient typed or ingredient is not available all the recipes will display.
 
 + Add checkboxes to allow selection of multiple recipes.
   + Click 'View Ingredients' to see ingredients on the right side.
