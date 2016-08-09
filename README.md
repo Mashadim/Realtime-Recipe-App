@@ -20,7 +20,7 @@ Using the provided JSON data representing a collection of meal recipes, create a
   + A list of recipes and their info is displayed once app is loaded.   
 
 + Allow filtering of recipes by a single ingredient.
-  + Type in any recipe to view desired recipe.
+  + Type in any ingredient to view recipes with that ingredient.
   + If no recipe typed or recipe is not available all the recipes will display.
 
 + Add checkboxes to allow selection of multiple recipes.
@@ -32,4 +32,4 @@ Using the provided JSON data representing a collection of meal recipes, create a
   + Once ingredients fill up the list you can scroll down to see them all.    
 	
 * Persist the selections locally and regenerate the view on page refresh.
-  + As you filter which recipes you want to see and check/uncheck, this will persist until you refresh the page.
+  + Ingredients and the recipes checked persist on reload.
