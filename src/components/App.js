@@ -32,13 +32,13 @@ export class App extends Component {
 	}
 	
 	render() {
-		const { recipeSearch, viewIngredients, viewRecipes, recipes } = this.props;
+		const { recipeSearch, viewIngredients, viewRecipes, recipesChecked, recipes } = this.props;
 		return (
 			<div className='container container-div'>
 				<Form recipeSearch={recipeSearch} handleRecipeSearch={this.handleRecipeSearch} />
 				<div className="row">
   					<div className="col-xs-7">
-						<RecipeList viewRecipes={viewRecipes} recipes={recipes} handleRecipeChecked={this.handleRecipeChecked}/>
+						<RecipeList viewRecipes={viewRecipes} recipes={recipes} handleRecipeChecked={this.handleRecipeChecked} recipesChecked={recipesChecked} />
 					</div>
   					<div className="col-xs-5">
 						<IngredientList viewIngredients={viewIngredients} />

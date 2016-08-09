@@ -1,14 +1,20 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import reducer from './reducer'
-import logger from 'redux-logger'
-import thunk from 'redux-thunk'
-import initialState from  '../initialState'
+import { applyMiddleware, compose, createStore } from 'redux';
+import reducer from './reducer';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import initialState from  '../initialState';
+import persistState from 'redux-localstorage';
+import throttle from 'lodash/throttle';
 
-let theStore = compose(
-	applyMiddleware(thunk, logger())
-)(createStore)
+const enhancer = compose(
+	applyMiddleware(thunk, logger()),
+  persistState()
+);
 
-export default function configStore(
-	initialState) {
-	return theStore(reducer, initialState)
-}
+const store = createStore(reducer, initialState, enhancer);
+
+store.subscribe(throttle(() => {
+  store.getState();
+}), 1000)
+
+export default store;

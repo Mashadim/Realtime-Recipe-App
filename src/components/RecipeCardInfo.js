@@ -5,7 +5,7 @@ import RecipeCardCheckbox from './RecipeCardCheckbox';
 
 export class RecipeCardInfo extends Component {
 	render() {
-		const { recipeName, recipeRating, recipeCookTime, recipeType, handleRecipeChecked } = this.props;
+		const { recipeName, recipeRating, recipeCookTime, recipeType, recipesChecked, handleRecipeChecked } = this.props;
 		return (
 			<div className='recipeCardInfo'>
 				<div className='recipeName general-font general-padding'> 
@@ -17,7 +17,7 @@ export class RecipeCardInfo extends Component {
 						<RecipeCardExtraInfo recipeCookTime={recipeCookTime} recipeType={recipeType} />
 					</div>
   					<div className="col-md-6">
-						<RecipeCardCheckbox recipeName={recipeName} handleRecipeChecked={handleRecipeChecked} />
+						<RecipeCardCheckbox recipeName={recipeName} handleRecipeChecked={handleRecipeChecked} recipesChecked={recipesChecked} />
 					</div>
 				</div>
 			</div>

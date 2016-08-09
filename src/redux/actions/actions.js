@@ -64,7 +64,7 @@ let actions = {
 		};
 	},
 	filterRecipes(text) {
-		return(dispatch, getState) => {
+		return (dispatch, getState) => {
 			let recipes = getState().recipes;
 			let recipeSearch = getState().recipeSearch.toLowerCase();
 			
@@ -76,6 +76,22 @@ let actions = {
 			dispatch(actions.foundRecipes(filteredRecipes));
 		};
 	},
+  filterRecipesByIngredient(text) {
+    return (dispatch, getState) => {
+      let recipes = getState().recipes;
+      let recipeSearch = getState().recipeSearch.toLowerCase();
+      
+      let filteredRecipes = recipes.filter((recipe) => {
+        let haveIngredient = [];
+        haveIngredient = recipe.ingredients.filter((ingredient) => {
+          let tempIngredientName = ingredient.toLowerCase();
+          return tempIngredientName.startsWith(recipeSearch);
+        });
+        return haveIngredient.length;
+      });
+      dispatch(actions.foundRecipes(filteredRecipes));
+    }
+  },
 	searchRecipe: function(searchTxt) {
 		return {
 			type: types.SEARCH_RECIPE,
@@ -85,7 +101,7 @@ let actions = {
 	findRecipe: function(text) {
 		return (dispatch) => {	
 			dispatch(actions.searchRecipe(text));	
-			dispatch(actions.filterRecipes(text));
+			dispatch(actions.filterRecipesByIngredient(text));
 		};
 	},
 	sendData: function(data) {
