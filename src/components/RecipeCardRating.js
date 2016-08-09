@@ -6,7 +6,7 @@ export class RecipeCardRating extends Component {
 		let rating = [];
 		for(var i=0; i<recipeRating; i++) {
 			rating.push(
-				<div key={i+1} className='glyphicon glyphicon-star' aria-hidden='true'></div>
+				<span key={i+1} className='glyphicon glyphicon-star' aria-hidden='true'></span>
 			)
 		}	
 		return (

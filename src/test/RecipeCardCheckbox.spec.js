@@ -6,6 +6,7 @@ import { RecipeCardCheckbox } from '../components/RecipeCardCheckbox';
 function setup() {
   const props = {
     recipeName: 'Pancakes',
+    recipesChecked: {},
     handleRecipeChecked: expect.createSpy(),
   }; 
   const wrapper = shallow(
@@ -48,6 +49,23 @@ describe('RecipeCardCheckbox Component', () => {
     expect(props.handleRecipeChecked.calls.length).toEqual(1);
     wrapper.find('input').simulate('click');
     expect(props.handleRecipeChecked.calls.length).toEqual(2);
-  })
+  });
   
+  it('should have recipe equal undefined and not checked if recipe not inside recipeChecked', () => {
+    expect(wrapper.find('input').prop('checked')).toEqual(undefined);
+  }); 
+  
+  it('should have recipe equal true and checked if recipe inside recipeChecked', () => {
+    const testProps = {
+      recipeName: 'Pancakes',
+      recipesChecked: {Pancakes: true},
+      handleRecipeChecked: () => {}
+    }
+    const testWrapper = shallow(
+      <RecipeCardCheckbox {...testProps}/>
+    )
+    expect(testWrapper.find('input').prop('checked')).toBeA('boolean');
+    expect(testWrapper.find('input').prop('checked')).toEqual(true);
+  });
+
 });

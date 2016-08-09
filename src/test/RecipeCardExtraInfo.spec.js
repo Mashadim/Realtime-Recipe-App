@@ -31,7 +31,7 @@ describe('RecipeCardExtraInfo Component', () => {
   
   it('should render props according to info passed', () => {
     expect(wrapper.find('div').childAt(1).text()).toEqual(props.recipeCookTime);
-     expect(wrapper.find('div').childAt(5).text()).toBe(props.recipeType);
+    expect(wrapper.find('div').childAt(5).text()).toBe(props.recipeType);
   });
   
 });
