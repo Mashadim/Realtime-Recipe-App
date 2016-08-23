@@ -1,10 +1,10 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { RecipeCardInfo } from '../components/RecipeCardInfo';
-import { RecipeCardRating } from '../components/RecipeCardRating';
-import { RecipeCardExtraInfo } from '../components/RecipeCardExtraInfo';
-import { RecipeCardCheckbox } from '../components/RecipeCardCheckbox';
+import { RecipeCardInfo } from '../../containers/RecipeCardInfo';
+import RecipeCardCheckbox from '../../containers/RecipeCardCheckbox';
+import RecipeCardRating from '../../components/RecipeCardRating';
+import RecipeCardExtraInfo from '../../components/RecipeCardExtraInfo';
 
 function setup() {
   const props = {
@@ -12,7 +12,6 @@ function setup() {
     recipeRating: 3,
     recipeCookTime: 25,
     recipeType: 'American',
-    handleRecipeChecked: () => {}
   }; 
   const wrapper = shallow(
     <RecipeCardInfo {...props} />
@@ -24,7 +23,7 @@ function setup() {
   }
 }
   
-describe('RecipeCardInfo Component', () => {
+describe('RecipeCardInfo Container', () => {
   const { wrapper, props } = setup();
     
   it('should render self and subcomponents', () => {  
@@ -42,11 +41,10 @@ describe('RecipeCardInfo Component', () => {
   
   it('should pass down props according to props received', () => {
     expect(wrapper.find('div').at(1).text()).toBe(props.recipeName);
-    expect(wrapper.find('RecipeCardRating').prop('recipeRating')).toBe(props.recipeRating);
-    expect(wrapper.find('RecipeCardExtraInfo').prop('recipeCookTime')).toBe(props.recipeCookTime);
-    expect(wrapper.find('RecipeCardExtraInfo').prop('recipeType')).toBe(props.recipeType);
-    expect(wrapper.find('RecipeCardCheckbox').prop('recipeName')).toBe(props.recipeName);
-    expect(wrapper.find('RecipeCardCheckbox').prop('handleRecipeChecked')).toBe(props.handleRecipeChecked);
+    expect(wrapper.find(RecipeCardRating).prop('recipeRating')).toBe(props.recipeRating);
+    expect(wrapper.find(RecipeCardExtraInfo).prop('recipeCookTime')).toBe(props.recipeCookTime);
+    expect(wrapper.find(RecipeCardExtraInfo).prop('recipeType')).toBe(props.recipeType);
+    expect(wrapper.find(RecipeCardCheckbox).prop('recipeName')).toBe(props.recipeName);
   });
   
 });

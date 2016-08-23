@@ -1,4 +1,5 @@
 require('babel-register')();
+//import reducer from '../../redux/reducer';
 
 var jsdom = require('jsdom').jsdom;
 
@@ -13,8 +14,10 @@ Object.keys(document.defaultView).forEach((property) => {
   }
 });
 
+global.fetch = () => {};
 global.navigator = {
   userAgent: 'node.js'
 };
 
 global.documentRef = document;
+

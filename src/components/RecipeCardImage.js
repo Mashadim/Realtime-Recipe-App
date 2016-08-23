@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
-export class RecipeCardImage extends Component {
-	render() {
-		const { recipeImage } = this.props;
-		return (
-			<div className='recipeCardImageDiv'>
-				<img className='recipeCardImage img-responsive center-block' src={recipeImage} />
-			</div>
-		)
-	}
-}
+export const RecipeCardImage = (props) => {
+	const { recipeImage } = props;
+	
+	return (
+		<div className='recipeCardImageDiv'>
+			<img className='recipeCardImage img-responsive center-block' src={recipeImage} />
+		</div>
+	)
+};
+
+React.propTypes = {
+	recipeImage: React.PropTypes.string.isRequired
+};
 
 export default RecipeCardImage;

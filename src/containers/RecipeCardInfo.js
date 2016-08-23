@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import RecipeCardRating from './RecipeCardRating';
-import RecipeCardExtraInfo from './RecipeCardExtraInfo';
+import React, { Component, PropTypes } from 'react';
 import RecipeCardCheckbox from './RecipeCardCheckbox';
+import RecipeCardRating from '../components/RecipeCardRating';
+import RecipeCardExtraInfo from '../components/RecipeCardExtraInfo';
 
 export class RecipeCardInfo extends Component {
 	render() {
-		const { recipeName, recipeRating, recipeCookTime, recipeType, recipesChecked, handleRecipeChecked } = this.props;
+		const { recipeName, recipeRating, recipeCookTime, recipeType } = this.props;
+		
 		return (
 			<div className='recipeCardInfo'>
 				<div className='recipeName general-font general-padding'> 
@@ -17,12 +18,19 @@ export class RecipeCardInfo extends Component {
 						<RecipeCardExtraInfo recipeCookTime={recipeCookTime} recipeType={recipeType} />
 					</div>
   					<div className="col-md-6">
-						<RecipeCardCheckbox recipeName={recipeName} handleRecipeChecked={handleRecipeChecked} recipesChecked={recipesChecked} />
+						<RecipeCardCheckbox recipeName={recipeName} />
 					</div>
 				</div>
 			</div>
 		)
 	}
-}
+};
+
+RecipeCardInfo.protoType = {
+	recipeName: React.PropTypes.string.isRequired,
+	recipeRating: React.PropTypes.string.isRequired,
+	recipeCookTime: React.PropTypes.string.isRequired,
+	recipeType: React.PropTypes.string.isRequired
+};
 
 export default RecipeCardInfo;

@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
-export class RecipeCardExtraInfo extends Component {
-	render() {
-		const { recipeCookTime, recipeType } = this.props;
-		return (
-			<div className='recipeCardExtraInfo lead general-padding'>
-				<span className='glyphicon glyphicon-time' aria-hidden='true'></span> 
-				{recipeCookTime} min <br />
-				Flavor: {recipeType}
-			</div>
-		)
-	}
-}
+export const RecipeCardExtraInfo = (props) => {
+	const { recipeCookTime, recipeType } = props;
+	
+	return (
+		<div className='recipeCardExtraInfo lead general-padding'>
+			<span className='glyphicon glyphicon-time' aria-hidden='true'></span> 
+			{recipeCookTime} min <br />
+			Flavor: {recipeType}
+		</div>
+	)
+};
+
+React.propTypes = {
+	recipeCookTime: React.PropTypes.string.isRequired,
+	recipeType: React.PropTypes.string.isRequired
+};
 
 export default RecipeCardExtraInfo;

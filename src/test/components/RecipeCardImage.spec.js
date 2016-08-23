@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { RecipeCardImage } from '../components/RecipeCardImage';
+import { RecipeCardImage } from '../../components/RecipeCardImage';
 
 function setup() {
   const props = {

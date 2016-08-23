@@ -1,26 +1,37 @@
 import React from 'react';
-import expect from 'expect';
-import { shallow } from 'enzyme';
-import { RecipeCardCheckbox } from '../components/RecipeCardCheckbox';
+import expect, { createSpy } from 'expect';
+import { shallow, mount } from 'enzyme';
+import { RecipeCardCheckbox } from '../../containers/RecipeCardCheckbox';
 
 function setup() {
   const props = {
     recipeName: 'Pancakes',
     recipesChecked: {},
-    handleRecipeChecked: expect.createSpy(),
+		onChange: () => {},
+		recipeCheck: () => {},
+		recipeUnCheck: () => {},
+		handleRecipeChecked: expect.createSpy()
   }; 
+	
   const wrapper = shallow(
     <RecipeCardCheckbox {...props} />
+  );
+	
+	const testWrapper = mount(
+		<RecipeCardCheckbox {...props} onChange={props.handleRecipeChecked} />
   );
   
   return {
     props,
-    wrapper
+    wrapper,
+		testWrapper
   }
-}
+};
   
-describe('RecipeCardCheckbox Component', () => {
-  const { wrapper, props } = setup();
+describe('RecipeCardCheckbox Container', () => {
+
+	const { props, wrapper, testWrapper } = setup();
+	
     
   it('should render self and subcomponents', () => {  
     expect(wrapper.length).toEqual(1);
@@ -44,10 +55,12 @@ describe('RecipeCardCheckbox Component', () => {
   });
   
   it('should call handleRecipeChecked function when clicked', () => {
-    expect(props.handleRecipeChecked.calls.length).toEqual(0);
-    wrapper.find('input').simulate('click');
+    testWrapper.props().onChange(true);
+		expect(props.handleRecipeChecked).toHaveBeenCalled();
     expect(props.handleRecipeChecked.calls.length).toEqual(1);
-    wrapper.find('input').simulate('click');
+		
+    testWrapper.props().onChange(false);
+		expect(props.handleRecipeChecked).toHaveBeenCalled();
     expect(props.handleRecipeChecked.calls.length).toEqual(2);
   });
   
@@ -59,13 +72,16 @@ describe('RecipeCardCheckbox Component', () => {
     const testProps = {
       recipeName: 'Pancakes',
       recipesChecked: {Pancakes: true},
-      handleRecipeChecked: () => {}
+			onChange: () => {},
+			recipeCheck: () => {},
+			recipeUnCheck: () => {},
+			handleRecipeChecked: expect.createSpy()
     }
-    const testWrapper = shallow(
-      <RecipeCardCheckbox {...testProps}/>
+    const testWrapper = mount(
+      <RecipeCardCheckbox {...Object.assign({}, props, testProps)}/>
     )
-    expect(testWrapper.find('input').prop('checked')).toBeA('boolean');
-    expect(testWrapper.find('input').prop('checked')).toEqual(true);
+    expect(testWrapper.find('input').prop('defaultChecked')).toBeA('boolean');
+    expect(testWrapper.find('input').prop('defaultChecked')).toEqual(true);
   });
 
 });

@@ -1,25 +1,37 @@
 import React from 'react';
-import expect from 'expect';
-import { shallow } from 'enzyme';
-import { Form } from '../components/Form';
+import expect, { createSpy } from 'expect';
+import { shallow, mount } from 'enzyme';
+import theStore from '../../redux/store';
+import { Form } from '../../containers/Form';
 
 function setup() {
   const props = {
     recipeSearch: '', 
-    viewRecipes: [],
+		onChange: () => {},
+		findRecipe: () => {},
     handleRecipeSearch: expect.createSpy(),
   }; 
   const wrapper = shallow(
     <Form {...props} />
   );
+	const testWrapper = mount(
+		<Form {...props} onChange={props.handleRecipeSearch} />
+	)
   return {
-    props,
-    wrapper
+		props,
+    wrapper,
+		testWrapper
   }
-}
+};
 
-describe('Form Component', () => {
-  const { wrapper, props } = setup();
+describe('Form Container', () => {
+	let props;
+	let wrapper;
+	let testWrapper;
+	
+	beforeEach(() => {
+		({ props, wrapper, testWrapper } = setup());
+	});
     
   it('should render self and subcomponents', () => {  
     expect(wrapper.length).toEqual(1);
@@ -37,21 +49,20 @@ describe('Form Component', () => {
   });
   
   it('should call handleRecipeSearch function when onChange is triggered', () => {
-    const input = wrapper.find('input');
-    
-    expect(props.handleRecipeSearch.calls.length).toEqual(0);
-    wrapper.find('input').simulate('change');
-    expect(props.handleRecipeSearch.calls.length).toEqual(1);
-    wrapper.find('input').simulate('change');
-    expect(props.handleRecipeSearch.calls.length).toEqual(2);
-    input.props().onChange('enchiladas');
-    expect(props.handleRecipeSearch.calls.length).toEqual(3);
-    input.props().onChange('pierogi');
-    expect(props.handleRecipeSearch.calls.length).toEqual(4);
+		testWrapper.props().onChange('enchiladas');
+		expect(props.handleRecipeSearch).toHaveBeenCalled();
+		expect(props.handleRecipeSearch.calls.length).toEqual(1);
+		
+		testWrapper.props().onChange('pierogi');
+		expect(props.handleRecipeSearch).toHaveBeenCalled();
+		expect(props.handleRecipeSearch.calls.length).toEqual(2);
   })
-  
-  it('should track calls of handleRecipeSearch function', () => {
-    expect(props.handleRecipeSearch.calls[2].arguments).toEqual(['enchiladas'])
-    expect(props.handleRecipeSearch.calls[3].arguments).toEqual(['pierogi'])
-  });
+	
+	it('should track calls of handleRecipeSearch function', () => {
+		testWrapper.props().onChange('enchiladas');
+		testWrapper.props().onChange('pierogi');
+		
+		expect(props.handleRecipeSearch.calls[0].arguments[0]).toBe('enchiladas')
+		expect(props.handleRecipeSearch.calls[1].arguments[0]).toBe('pierogi')
+	});
 });

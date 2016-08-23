@@ -1,7 +1,8 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import { IngredientList } from '../components/IngredientList';
+import { IngredientList } from '../../containers/IngredientList';
+import Ingredient from '../../components/Ingredient';
 
 function setup() {
   const props = {
@@ -10,14 +11,14 @@ function setup() {
   const wrapper = shallow(
     <IngredientList {...props} />
   );
-  
+
   return {
     props,
     wrapper
   }
 }
   
-describe('IngredientList Component', () => {
+describe('IngredientList Container', () => {
   const { wrapper, props } = setup();
     
   it('should render self and subcomponents', () => {  
@@ -42,8 +43,9 @@ describe('IngredientList Component', () => {
     const testWrapper = mount(
      <IngredientList {...testProps} />
     );
+	
     expect(testWrapper.find('div.ingredient').length).toEqual(2);
-    expect(testWrapper.find('Ingredient').length).toEqual(2);
+    expect(testWrapper.find(Ingredient).length).toEqual(2);
   });
   
 });

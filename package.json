@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "DataScience's Frontend Code Test",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register src/test/dom.js ./src/**/*.spec.js",
-    "serve": "nodemon server/server.js --ignore components"
+    "test": "mocha --compilers js:babel-core/register src/test/test_helper.js ./src/**/*.spec.js --recursive",
+		"serve": "nodemon server/server.js --ignore components"
   },
   "repository": {
     "type": "git",
