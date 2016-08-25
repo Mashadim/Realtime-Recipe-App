@@ -37,10 +37,9 @@ function mapStateToProps({ recipesChecked = {} } = {}) {
 RecipeCardCheckbox.propTypes = {
 	recipeName: PropTypes.string.isRequired,
 	recipesChecked: PropTypes.object,
-	onChange: PropTypes.func.isRequired,
-	handleRecipeChecked: PropTypes.func.isRequired,
-  recipeCheck: React.PropTypes.func.isRequired,
-  recipeUnCheck: React.PropTypes.func.isRequired,
+	handleRecipeChecked: PropTypes.func,
+  recipeCheck: React.PropTypes.func,
+  recipeUnCheck: React.PropTypes.func,
 };
 
 export default connect(mapStateToProps, { recipeCheck, recipeUncheck })(RecipeCardCheckbox);

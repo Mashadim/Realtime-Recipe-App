@@ -41,7 +41,7 @@ describe('IngredientList Container', () => {
       viewIngredients: ['potato', 'tomato']
     }
     const testWrapper = mount(
-     <IngredientList {...testProps} />
+     <IngredientList {...Object.assign({}, props, testProps)} />
     );
 	
     expect(testWrapper.find('div.ingredient').length).toEqual(2);

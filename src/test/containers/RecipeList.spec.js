@@ -35,11 +35,11 @@ describe('RecipeList Container', () => {
   
   it('view variable should be be viewRecipes if viewRecipes is not empty', () => {  
     const testProps = {
-    viewRecipes: ['Pierogi', 'Borscht'],
-    recipes: ['Pierogi', 'Borscht', 'Pancakes'],
+    	viewRecipes: ['Pierogi', 'Borscht'],
+    	recipes: ['Pierogi', 'Borscht', 'Pancakes'],
     }
     const testWrapper = shallow(
-      <RecipeList {...testProps}/>
+      <RecipeList {...Object.assign({}, props, testProps)}/>
     )
     
     expect(testWrapper.find(RecipeCard).length).toEqual(2);

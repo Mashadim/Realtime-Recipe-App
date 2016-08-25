@@ -33,9 +33,8 @@ function mapStateToProps({ recipeSearch = '' } = {}) {
 };
 
 Form.propTypes = {
-	handleRecipeSearch: React.PropTypes.func.isRequired,
+	handleRecipeSearch: React.PropTypes.func,
 	recipeSearch: React.PropTypes.string.isRequired,
-	onChange: React.PropTypes.func.isRequired,
   findRecipe: React.PropTypes.func.isRequired
 };
 

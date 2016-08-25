@@ -7,7 +7,6 @@ import { Form } from '../../containers/Form';
 function setup() {
   const props = {
     recipeSearch: '', 
-		onChange: () => {},
 		findRecipe: () => {},
     handleRecipeSearch: expect.createSpy(),
   }; 

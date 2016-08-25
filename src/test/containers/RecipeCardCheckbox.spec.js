@@ -7,7 +7,6 @@ function setup() {
   const props = {
     recipeName: 'Pancakes',
     recipesChecked: {},
-		onChange: () => {},
 		recipeCheck: () => {},
 		recipeUnCheck: () => {},
 		handleRecipeChecked: expect.createSpy()
@@ -72,7 +71,6 @@ describe('RecipeCardCheckbox Container', () => {
     const testProps = {
       recipeName: 'Pancakes',
       recipesChecked: {Pancakes: true},
-			onChange: () => {},
 			recipeCheck: () => {},
 			recipeUnCheck: () => {},
 			handleRecipeChecked: expect.createSpy()
